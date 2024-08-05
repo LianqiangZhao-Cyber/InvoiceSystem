@@ -51,7 +51,7 @@ export default function Dashboard() {
 // get the numbers of invoices 
   const fetchNumData = useCallback(() => {
     axios
-      .get("http://localhost:8000/invoice/invoice-number", {
+      .get("http://backend:8000/invoice/invoice-number", {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${token}`,

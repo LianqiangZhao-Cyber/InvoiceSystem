@@ -63,7 +63,7 @@ export default function Profile() {
 // get this user information
   const fetchProfileData = useCallback(() => {
     axios
-      .get("http://127.0.0.1:8000/invoice/user-info/", {
+      .get("http://backend:8000/invoice/user-info/", {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${token}`,
@@ -100,7 +100,7 @@ export default function Profile() {
       formData.append("avatar", profileData.avatarFile);
     }
     axios
-      .post(`http://127.0.0.1:8000/invoice/user-info/`, formData, {
+      .post(`http://backend:8000/invoice/user-info/`, formData, {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${token}`,

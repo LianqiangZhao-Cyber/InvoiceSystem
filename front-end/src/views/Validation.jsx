@@ -97,7 +97,7 @@ export default function Validation() {
 // get all invoices data
   const fetchInvoiceData = useCallback(() => {
     axios
-      .get(`http://127.0.0.1:8000/invoice/invoice-info/`, {
+      .get(`http://backend:8000/invoice/invoice-info/`, {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${token}`,
@@ -135,7 +135,7 @@ export default function Validation() {
     }
     setShowIcon(true);
     axios
-      .post("http://127.0.0.1:8000/invoice/invoice-validation/", null, {
+      .post("http://backend:8000/invoice/invoice-validation/", null, {
         params: {
           uuid: selectedUuid || idNum,
           rules: selectedRules.join(","),

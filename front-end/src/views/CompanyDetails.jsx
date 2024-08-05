@@ -11,7 +11,7 @@ export default function CompanyDetails() {
     const fetchCompanyInfo = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/invoice/company-info/",
+          "http://backend:8000/invoice/company-info/",
           {
             headers: {
               accept: "application/json",

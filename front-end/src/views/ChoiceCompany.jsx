@@ -17,7 +17,7 @@ export default function Choice() {
 // get the company names which have existed
   const handleOpen = () => {
     axios
-      .get(`http://127.0.0.1:8000/invoice/join-company/`, {
+      .get(`http://backend:8000/invoice/join-company/`, {
         headers: {
           Accept: "application/json", 
           Authorization: `Bearer ${token}`,
@@ -39,7 +39,7 @@ export default function Choice() {
   const handleSubmit = (names) => {
     axios
       .post(
-        `http://127.0.0.1:8000/invoice/join-company/`,
+        `http://backend:8000/invoice/join-company/`,
         {
           company_name: names,
         },
@@ -97,7 +97,7 @@ export default function Choice() {
 // post the company details to backend
   const handleChioceCompany = () => {
     axios
-      .post(`http://127.0.0.1:8000/invoice/create-company/`, formData, {
+      .post(`http://backend:8000/invoice/create-company/`, formData, {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",

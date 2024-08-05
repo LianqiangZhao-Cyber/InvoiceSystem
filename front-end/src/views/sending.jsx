@@ -67,7 +67,7 @@ export default function Sending() {
 // get all invoices data
   const fetchInvoiceData = useCallback(() => {
     axios
-      .get(`http://127.0.0.1:8000/invoice/invoice-info/`, {
+      .get(`http://backend:8000/invoice/invoice-info/`, {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${token}`,
@@ -120,7 +120,7 @@ export default function Sending() {
     console.log(uuids.join(","), email, fullMessage);
     axios
       .post(
-        "http://127.0.0.1:8000/invoice/invoice-sending/",
+        "http://backend:8000/invoice/invoice-sending/",
         { message: fullMessage },
         {
           params: {
