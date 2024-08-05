@@ -60,7 +60,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # 如果前端在本地运行
-    'http://43.128.79.206',   # 如果前端在同一服务器上运行
+    'http://43.128.79.206/',   # 如果前端在同一服务器上运行
 ]
 
 CORS_ALLOW_METHODS = [
