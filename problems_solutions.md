@@ -605,3 +605,38 @@ STATICFILES_DIRS = [
 这里是两个备选的路径，通过```localhost:3000/staticfiles/```可以直接指代这两个路径
 
 比如```os.path.join(BASE_DIR, "staticfiles/"),``` 是 ```User/homy/9900/project/staticfiles/```,那么```localhost:3000/staticfiles/``` = ```User/homy/9900/project/staticfiles/``` 接下来只需要填写文件所在的相对路径就可以。比如```1.png```的路径为 ```User/homy/9900/project/staticfiles/avatar/1.png``` 在浏览器只需要输入 ```localhost:3000/staticfiles/avatar/1.png```即可访问
+
+
+
+# 15.如何将项目使用云服务器运行
+
+### 1.首先需要购买一台云服务器，这里注意一般系统都选择centos7.6左右的版本，注意宽带和按量付费的区别，阿里云做域名备案必须要求宽带
+
+### 2.购买域名进行域名解析，一般用国内主机都需要进行域名备案，不购买域名的话只能通过ip进行访问
+
+### 3.购买完云服务器实例后进行配置
+
+* ssh -i test.pem root@43.128.79.206 连接到云服务器，或者使用vscode remost ssh (commond+shift+p输入remote ssh，输入user@hostname)
+
+* lcmh@123 密码
+
+* 目前的做法是下载git，使用git clone把项目拿下来，注意这里的项目是使用docker进行配置的
+
+* 在云服务器下载docker，使用docker-compose up --build构建docker image，如果前端或者后端启动失败的话则使用
+
+  ```
+  docker run -d --name frontend --network my_network -p 80:3000 invoicesystem_frontend
+  # 这里80:3000的意思是把3000端口映射到80端口上，因为默认http协议是往80端口发送请求
+  ```
+
+* 这里云服务器的安全组记得打开8000后端端口，否则前端访问不到
+* 前端访问后端api端口需要从http://localhost:8000或者http://127.0.0.1:8000改为http://云服务器ip地址:8000
+* 到这里项目应该可以正常的运行了，但是通过右键 ->检查 -> source会看到前端所有的代码![截屏2024-08-05 下午8.05.02](/Users/homy/Library/Application Support/typora-user-images/截屏2024-08-05 下午8.05.02.png)
+* 解决方法是（未检测）![截屏2024-08-05 下午8.06.06](/Users/homy/Library/Application Support/typora-user-images/截屏2024-08-05 下午8.06.06.png)
+
+![截屏2024-08-05 下午8.06.28](/Users/homy/Library/Application Support/typora-user-images/截屏2024-08-05 下午8.06.28.png)
+
+### 4. 当代码出现bug后可以如何在云服务器里进行修改
+
+* 1.使用docker exec -it frontend /bin/sh 打开docker 前端目录，修改后会自动提现，无需在build
+* 2.或者在云服务器环境中git pull下来更新后的代码，然后docker stop all_image, docker rm all_image然后在docker-compose up --build创建新的image
