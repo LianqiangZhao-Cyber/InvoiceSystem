@@ -2,6 +2,9 @@
 
 This is a front-end and back-end separated system for processing invoices. The project is built using Django for the back-end and React for the front-end.
 
+# Youtube Link
+[Watch this YouTube video](https://youtu.be/d_gEXpEqzzs?si=C7J7IeVG1A-fNGrn)
+
 ## Table of Contents
 
 - [Project Structure](#project-structure)
