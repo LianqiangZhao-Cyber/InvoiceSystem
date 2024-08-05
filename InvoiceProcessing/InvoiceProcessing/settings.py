@@ -58,7 +58,11 @@ MIDDLEWARE = [
 
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True  # 或者使用CORS_ALLOWED_ORIGINS配置特定的域名
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # 如果前端在本地运行
+    'http://43.128.79.206',   # 如果前端在同一服务器上运行
+]
+
 CORS_ALLOW_METHODS = [
     "DELETE",
     "GET",
