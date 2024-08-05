@@ -37,10 +37,10 @@ export default function Login() {
   const goDashboard = () => {
     navigate("/home");
   };
-  // post username and password to backend and receive response
+  // post username and password to 43.128.79.206 and receive response
   const handleLogin = () => {
     axios
-      .post("http://localhost:8000/invoice/login/", null, {
+      .post("http://43.128.79.206:8000/invoice/login/", null, {
         params: {
           username: username,
           password: password,
@@ -75,12 +75,12 @@ export default function Login() {
         }
       });
   };
-// post the username and email to backend to reset password
+// post the username and email to 43.128.79.206 to reset password
   const handleEmailSubmit = ({ email, username }) => {
     setShowIcon(true);
     axios
       .post(
-        "http://backend:8000/invoice/password_reset/",
+        "http://43.128.79.206:8000/invoice/password_reset/",
         {
           username: username,
           email: email,

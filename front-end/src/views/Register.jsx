@@ -26,14 +26,14 @@ export default function Register() {
     const goChoice = () => {
         navigate("/choice");
     }
-    // post the register information to backend and receive response
+    // post the register information to 43.128.79.206 and receive response
     const handleRegister = () => {
         if (password !== confirmPassword) {
             setAlert({ severity: 'warning', message: 'Passwords do not match' });
             return;
         }
         
-        axios.post('http://backend:8000/invoice/register/', {    
+        axios.post('http://43.128.79.206:8000/invoice/register/', {    
                 username: username,
                 password: password,
                 name: name,

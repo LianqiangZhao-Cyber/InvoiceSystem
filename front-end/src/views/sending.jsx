@@ -67,7 +67,7 @@ export default function Sending() {
 // get all invoices data
   const fetchInvoiceData = useCallback(() => {
     axios
-      .get(`http://backend:8000/invoice/invoice-info/`, {
+      .get(`http://43.128.79.206:8000/invoice/invoice-info/`, {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${token}`,
@@ -106,7 +106,7 @@ export default function Sending() {
     fetchInvoiceData();
   }, [token, fetchInvoiceData]);
 
-// post invoice id and input details to backend
+// post invoice id and input details to 43.128.79.206
   const handleSend = () => {
     const uuids = selectedInvoices.map((invoice) => invoiceUuidMap[invoice]);
     const fullMessage = `Dear ${firstName} ${lastName}: \n${message}`;
@@ -120,7 +120,7 @@ export default function Sending() {
     console.log(uuids.join(","), email, fullMessage);
     axios
       .post(
-        "http://backend:8000/invoice/invoice-sending/",
+        "http://43.128.79.206:8000/invoice/invoice-sending/",
         { message: fullMessage },
         {
           params: {

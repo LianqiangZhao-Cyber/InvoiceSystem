@@ -63,7 +63,7 @@ export default function Profile() {
 // get this user information
   const fetchProfileData = useCallback(() => {
     axios
-      .get("http://backend:8000/invoice/user-info/", {
+      .get("http://43.128.79.206:8000/invoice/user-info/", {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${token}`,
@@ -88,7 +88,7 @@ export default function Profile() {
     console.log("Updated profileData:", profileData);
   }, [profileData]);
 
-  // post the change information of editing to backend and receive response
+  // post the change information of editing to 43.128.79.206 and receive response
   const handleSaveData = () => {
     const formData = new FormData();
     formData.append("username", profileData.username);
@@ -100,7 +100,7 @@ export default function Profile() {
       formData.append("avatar", profileData.avatarFile);
     }
     axios
-      .post(`http://backend:8000/invoice/user-info/`, formData, {
+      .post(`http://43.128.79.206:8000/invoice/user-info/`, formData, {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${token}`,

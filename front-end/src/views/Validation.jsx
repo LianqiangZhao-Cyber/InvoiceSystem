@@ -97,7 +97,7 @@ export default function Validation() {
 // get all invoices data
   const fetchInvoiceData = useCallback(() => {
     axios
-      .get(`http://backend:8000/invoice/invoice-info/`, {
+      .get(`http://43.128.79.206:8000/invoice/invoice-info/`, {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${token}`,
@@ -126,7 +126,7 @@ export default function Validation() {
     fetchInvoiceData();
   }, [token, fetchInvoiceData]);
 
-// post validation information and receive the backend validated report
+// post validation information and receive the 43.128.79.206 validated report
   const handleValidate = () => {
     const selectedUuid = invoiceUuidMap[selectedInvoice];
     if (!selectedUuid) {
@@ -135,7 +135,7 @@ export default function Validation() {
     }
     setShowIcon(true);
     axios
-      .post("http://backend:8000/invoice/invoice-validation/", null, {
+      .post("http://43.128.79.206:8000/invoice/invoice-validation/", null, {
         params: {
           uuid: selectedUuid || idNum,
           rules: selectedRules.join(","),

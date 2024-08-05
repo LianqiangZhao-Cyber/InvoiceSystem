@@ -17,7 +17,7 @@ export default function Choice() {
 // get the company names which have existed
   const handleOpen = () => {
     axios
-      .get(`http://backend:8000/invoice/join-company/`, {
+      .get(`http://43.128.79.206:8000/invoice/join-company/`, {
         headers: {
           Accept: "application/json", 
           Authorization: `Bearer ${token}`,
@@ -35,11 +35,11 @@ export default function Choice() {
   const handleClose = () => {
     setOpen(false);
   };
-// post the company name you have choose to backend
+// post the company name you have choose to 43.128.79.206
   const handleSubmit = (names) => {
     axios
       .post(
-        `http://backend:8000/invoice/join-company/`,
+        `http://43.128.79.206:8000/invoice/join-company/`,
         {
           company_name: names,
         },
@@ -94,10 +94,10 @@ export default function Choice() {
       [name]: value,
     });
   };
-// post the company details to backend
+// post the company details to 43.128.79.206
   const handleChioceCompany = () => {
     axios
-      .post(`http://backend:8000/invoice/create-company/`, formData, {
+      .post(`http://43.128.79.206:8000/invoice/create-company/`, formData, {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
