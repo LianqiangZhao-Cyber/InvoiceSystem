@@ -40,7 +40,7 @@ export default function Login() {
   // post username and password to backend and receive response
   const handleLogin = () => {
     axios
-      .post("http://127.0.0.1:8000/invoice/login/", null, {
+      .post("http://backend:8000/invoice/login/", null, {
         params: {
           username: username,
           password: password,
@@ -80,7 +80,7 @@ export default function Login() {
     setShowIcon(true);
     axios
       .post(
-        "http://127.0.0.1:8000/invoice/password_reset/",
+        "http://backend:8000/invoice/password_reset/",
         {
           username: username,
           email: email,

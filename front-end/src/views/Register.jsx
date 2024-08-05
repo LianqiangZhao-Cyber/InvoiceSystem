@@ -33,7 +33,7 @@ export default function Register() {
             return;
         }
         
-        axios.post('http://127.0.0.1:8000/invoice/register/', {    
+        axios.post('http://backend:8000/invoice/register/', {    
                 username: username,
                 password: password,
                 name: name,
