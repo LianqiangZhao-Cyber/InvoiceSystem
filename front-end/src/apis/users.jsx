@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Base URL for the invoice API
-const API_BASE_URL = "http://localhost:8000/invoice";
+const API_BASE_URL = "http://backend:8000/invoice";
 
 // Retrieve the authentication token from local storage
 const token = localStorage.getItem("token");

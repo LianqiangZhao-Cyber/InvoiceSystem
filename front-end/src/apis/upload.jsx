@@ -1,7 +1,7 @@
 import axios from "axios"; // Import axios library for making HTTP requests
 
 // Define the base URL for the API
-const API_BASE_URL = "http://localhost:8000/invoice";
+const API_BASE_URL = "http://backend:8000/invoice";
 
 /**
  * Upload a file to the server
