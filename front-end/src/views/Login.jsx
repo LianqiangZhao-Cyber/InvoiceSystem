@@ -40,7 +40,7 @@ export default function Login() {
   // post username and password to backend and receive response
   const handleLogin = () => {
     axios
-      .post("http://backend:8000/invoice/login/", null, {
+      .post("http://localhost:8000/invoice/login/", null, {
         params: {
           username: username,
           password: password,
