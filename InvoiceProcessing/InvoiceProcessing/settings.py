@@ -62,6 +62,11 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # 如果前端在本地运行
     'http://43.128.79.206/',   # 如果前端在同一服务器上运行
 ]
+ALLOWED_HOSTS = [
+    'localhost',
+    '43.128.79.206',
+    'frontend',  # Docker 内部网络名称
+]
 
 CORS_ALLOW_METHODS = [
     "DELETE",
